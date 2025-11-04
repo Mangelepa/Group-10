@@ -3,4 +3,4 @@ numpy>=1.16.5
 scikit-learn
 matplotlib
 streamlit>=1.10.0
-joblib>=1.0.1
+joblib>=1.0.1git 
