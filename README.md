@@ -113,7 +113,8 @@ tqdm
 difflib
 """
    
-![Plot 1](README_files/README_56_2.png)
+![Plot 1](https://github.com/Mangelepa/Group-10/blob/main/README_files/README_56_2.png?raw=true)
+
 
 ![Plot 2](README_files/README_60_0.png)
 
