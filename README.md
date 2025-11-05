@@ -114,32 +114,13 @@ difflib
 """
    
 ![png](README_files/README_56_2.png)
-    
-
-
-
-
-
-   
-
-    
+      
 ![png](README_files/README_60_0.png)
-    
-
- 
-    
+        
 ![png](README_files/README_62_0.png)
-    
-
-
-   
-    
+       
 ![png](README_files/README_64_0.png)
-    
-
-
-
-    
+       
 ![png](README_files/README_66_0.png)
     
 
