@@ -174,7 +174,7 @@ To extract specific financial or metric items from a DataFrame and format them i
 A well-formatted Pandas DataFrame containing resolved and renamed data, including `"Statement"` and `"Report Date"` columns.
 
 
-## 5. Extract & Standardize Financial Rows – `extract_data_resolve()`
+## 6. Extract & Standardize Financial Rows – `extract_data_resolve()`
 
 **Purpose**: Pull **specific financial line items** from a raw Yahoo Finance statement (income, balance, or cash flow) using **fuzzy-matched names**, then **reshape and label** them consistently.  
 **Why it matters**: Transforms **wide, messy API output** into **long-format, analyst-ready data** with clean column names.  
