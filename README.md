@@ -759,12 +759,14 @@ Based on the data framework the following steps were done:
 * Data Quality Audit: The audit revealed a minimal number of unexpected negative values in fields like Gross Profit (1 instance) and Net Income (22 instances). The existence of these negative values is valid for loss-making companies but confirms the importance of the cleaning steps to prevent critical errors in ratio calculations.
 
 # Recommendations
-To achieve the remaining business objectives (creating the final scoring model, visualization, and actionable advice), the following steps are recommended:
+1. For Safe Companies
+Maintain current financial practices while exploring strategic reinvestment opportunities, such as expanding product lines or entering new markets to sustain growth momentum.
 
-* Complete the Scoring Model: The next critical step is to utilize the engineered features (ratios, Z-Score) to build the final Financial Health Scoring Model . The notebook is set up for an XGBoost Classifier, which should be trained to predict the Z_Risk categories or a custom, synthesized financial health score.
+2. For Grey Zone Companies
+Conduct a cost structure and efficiency review to identify areas where expenses can be optimized. Strengthening liquidity reserves and improving revenue consistency should be prioritized.
 
-* Model Explainability: The project should leverage SHAP (already imported) to interpret the final model's predictions, ensuring the output is clear and explainable to both technical and non-technical users (a key success criterion). This will justify the final score.
+3. For Distressed Companies
+Implement debt restructuring or refinancing strategies to reduce financial pressure. Immediately evaluate operational inefficiencies and consider divesting underperforming assets.
 
-* Build the Visualization Layer: Develop the planned clear dashboards and charts  to present the Z-Score distribution, key ratio trends over time, and the final predicted health score for each company, allowing for easier interpretation of financial health.
-
-* Generate Actionable Advice: The final output should include logic to translate the resulting health score (e.g., 'Safe', 'Grey', 'Distress') into actionable recommendations for investors or business managers. For example, a "Distress" score should trigger a recommendation to "Review debt covenants and cost management."
+4. For Investors & Lenders
+Use the financial health score as a screening tool before deeper due diligence. Prioritize “Safe” companies, monitor “Grey” companies closely, and approach “Distress” cases with caution or additional risk mitigation requirements.
