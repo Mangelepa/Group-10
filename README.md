@@ -1,4 +1,6 @@
 # 1. Business Understanding
+# 1.1 Business Overview 
+ Many investors, lenders, and business owners rely on intuition or outdated reports when evaluating a company's financial health, which often leads to poor investment or lending decisions.The project aims to develop a data-powered tool that automatically analyzes publicly available financial data (income statements, balance sheets, and cash flows) to assess a company’s financial stability, profitability, and risk.This project aims to build a scoring system that evaluates a company's financial health using real-world financial data.The project will simplify financial decision-making by transforming raw numbers into actionable insights through data analysis, visualization, and machine learning.Real financial datasets will be fetched directly from the Yahoo Finance API
 
 ## 1.2 Problem Statement
 
@@ -94,14 +96,14 @@ In this section, we will import the necessary Python libraries and load financia
 
 The data will include income statements, balance sheets, cash flow statements, and stock price history for a chosen company. We will then explore its structure before cleaning and feature engineering.
 
-## 1. Imports – Core Libraries (Security & Scalability Review)
+## 3.1. Imports – Core Libraries (Security & Scalability Review)
 
 **Purpose**: Load all dependencies for financial data ingestion, analysis, ML modeling, and visualization.  
 **Why it matters**: Ensures **no runtime `ImportError`** and a **modular design**    
 **Scalability Note**: `tqdm` enables progress tracking; `pickle` for caching (TTL-aware).  
 **Precision Note**: `numpy` used only for arrays – **all money values will use `Decimal` later**.
 
-## 2. Build Ticker Universe
+## 3.2. Build Ticker Universe
 
 **Purpose**: Create a **large, clean list of investable tickers** for financial statement extraction.  
 **Sources**:  
@@ -118,7 +120,7 @@ The data will include income statements, balance sheets, cash flow statements, a
     Final universe: 503 tickers
     
 
-## 3. Financial Statement Mapping 
+## 3.3 Financial Statement Mapping 
 
 **Purpose**: Define **standardized, readable field names** for key financial metrics while mapping to **exact Yahoo Finance row labels**.  
 **Why it matters**: Enables **consistent ratio calculations** across 10,000+ tickers despite naming inconsistencies.  
@@ -129,7 +131,7 @@ The data will include income statements, balance sheets, cash flow statements, a
 **Scalability Note**: Will be used with **fuzzy matching** later → robust to label changes.
    
 
-## 4.Function: `resolve_item_names`
+##  3.4.Function: `resolve_item_names`
 
 The `resolve_item_names` function attempts to intelligently match a list of *desired* item names against the index of a given Pandas DataFrame. It supports exact, case-insensitive, and fuzzy string matching to handle inconsistent or imperfect naming across datasets.
 
@@ -149,7 +151,7 @@ To map each desired raw name to the most appropriate actual name found in the Da
 A dictionary mapping each desired name to its resolved actual name (or `None` if no match is found).
 
 
-## 5.Function: `extract_data_resolve`
+## 3.5.Function: `extract_data_resolve`
 
 The `extract_data_resolve` function extracts, cleans, and structures financial or tabular data from a given DataFrame based on a provided mapping of desired items. It leverages the `resolve_item_names` function to match target item names and ensures consistent data alignment across reports or statements.
 
@@ -174,7 +176,7 @@ To extract specific financial or metric items from a DataFrame and format them i
 A well-formatted Pandas DataFrame containing resolved and renamed data, including `"Statement"` and `"Report Date"` columns.
 
 
-## 6. Extract & Standardize Financial Rows – `extract_data_resolve()`
+## 3.6. Extract & Standardize Financial Rows – `extract_data_resolve()`
 
 **Purpose**: Pull **specific financial line items** from a raw Yahoo Finance statement (income, balance, or cash flow) using **fuzzy-matched names**, then **reshape and label** them consistently.  
 **Why it matters**: Transforms **wide, messy API output** into **long-format, analyst-ready data** with clean column names.  
@@ -188,7 +190,7 @@ A well-formatted Pandas DataFrame containing resolved and renamed data, includin
 **Scalability**: Operates per ticker → safe for 10,000+  
 **Debug**: `verbose=True` prints match quality → audit data pipeline.
 
-## 7.Main Extraction Loop 
+## 3.7.Main Extraction Loop 
 
 **Purpose**: Download **income, balance sheet, and cash flow** statements for **10,000+ tickers** using `yfinance`, **cache results**, and **stop early** once ≥ 10,000 total rows are collected.  
 **Why it matters**:  
@@ -208,7 +210,7 @@ A well-formatted Pandas DataFrame containing resolved and renamed data, includin
     Processing: 100%|██████████| 503/503 [00:02<00:00, 217.65it/s]
     
 
-## 8. Build Master Tables – Safe Concatenation with Column Deduplication
+## 3.8. Build Master Tables – Safe Concatenation with Column Deduplication
 
 **Purpose**: Combine **all per-ticker DataFrames** (from `income_list`, `balance_list`, `cashflow_list`) into **three clean master tables** while **avoiding `InvalidIndexError`** caused by duplicate column names.  
 **Why it matters**:  
@@ -237,7 +239,7 @@ A well-formatted Pandas DataFrame containing resolved and renamed data, includin
     TOTAL   : 1,509 rows
     
 
-## 9. Sample Output – Data Quality Check
+## 3.9. Sample Output – Data Quality Check
 
 **Purpose**: Display **clean, standardized financials** for the **first ticker** in the universe to **validate pipeline success**.  
 **Why it matters**:  
