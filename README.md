@@ -759,14 +759,14 @@ Based on the data framework the following steps were done:
 * Data Quality Audit: The audit revealed a minimal number of unexpected negative values in fields like Gross Profit (1 instance) and Net Income (22 instances). The existence of these negative values is valid for loss-making companies but confirms the importance of the cleaning steps to prevent critical errors in ratio calculations.
 
 # Recommendations
-1. For Safe Companies
+1. **For Safe Companies**:
 Maintain current financial practices while exploring strategic reinvestment opportunities, such as expanding product lines or entering new markets to sustain growth momentum.
 
-2. For Grey Zone Companies
+2. **For Grey Zone Companies**:
 Conduct a cost structure and efficiency review to identify areas where expenses can be optimized. Strengthening liquidity reserves and improving revenue consistency should be prioritized.
 
-3. For Distressed Companies
+3. **For Distressed Companies**:
 Implement debt restructuring or refinancing strategies to reduce financial pressure. Immediately evaluate operational inefficiencies and consider divesting underperforming assets.
 
-4. For Investors & Lenders
+4. **For Investors & Lenders**:
 Use the financial health score as a screening tool before deeper due diligence. Prioritize “Safe” companies, monitor “Grey” companies closely, and approach “Distress” cases with caution or additional risk mitigation requirements.
